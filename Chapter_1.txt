@@ -1,0 +1,108 @@
+ a database-management system is a collection of interrelated data and a set of programs to access those data. the collection of the data is usually referred to as the database, contains information relevant to an enterprise. primary goal of a dbms: store and retrieve information that is both convenient and efficient.
+database systems are designed to manage large bodies of information. management invovles both defining structures for storage of information and providing mechanisms for the manipulation of information. In addition, the database system must ensure the safety of the information stored, even in system crashes or attempts at unauthorized access. if data are to be shared among several users, the system must avoid possible anomalous results. because information is so important in organisations, computer scientists have developed a large amount of concepts and techniques for managing data. these will be the focus of this book.
+
+1.1
+
+all database applications share important common elements. the central aspect is the data itself. some companies values today are almost solely made from data (exp. google) database systems are used to manage collections of data that:
+are highly valuable, relatively large and, are accessed by mutliple users and applications, often at the same time.
+
+database applications may include complex relationships and a more variable structure. for example, a universitys records regarding courses, students and a course registration. they keep the same info about each course:
+-course_ID
+-title
+departement
+-course_nr
+
+similar for students:
+-student_ID
+-name
+-address
+-phone
+
+course registration is a collection of pairs, one course_ID and one student_ID.
+
+Information of this sort has a standard, a repeating structure and have been used for a long time. Compare this to a social-networking site. Users there post varying types of information about themselves from simple things like name, date of birth to images, videos or links to other users. there is only a limited amount of common structure among these data. both of these applications however share the basic features of a database. Modern databases use commonalities of data to gain efficiency but also allow for weakly structured data and for data whose formats are highly variable. thus making managing a database a complex task. Key to managing databses is the concept of abstraction. abstraction allows a person to use a complex device or a system without having to know the details of how that device or system is constructed. for example: u can drive a car without understand how a motor is built. you just need to know how to operate the controls of it. you only know the abstraction of what the motor does. here some more examples :
+
+Enterprise Information
+° Sales: For customer, product, and purchase information.
+1.1 Database-System Applications 3
+° Accounting: For payments, receipts, account balances, assets, and other accounting information.
+° Human resources: For information about employees, salaries, payroll taxes, and
+benefits, and for generation of paychecks.
+• Manufacturing: For management of the supply chain and for tracking production
+of items in factories, inventories of items in warehouses and stores, and orders for
+items.
+• Banking and Finance
+° Banking: For customer information, accounts, loans, and banking transactions.
+° Credit card transactions: For purchases on credit cards and generation of
+monthly statements.
+° Finance: For storing information about holdings, sales, and purchases of financial instruments such as stocks and bonds; also for storing real-time market
+data to enable online trading by customers and automated trading by the firm.
+• Universities: For student information, course registrations, and grades (in addition
+to standard enterprise information such as human resources and accounting).
+• Airlines: For reservations and schedule information. Airlines were among the first
+to use databases in a geographically distributed manner.
+• Telecommunication: For keeping records of calls, texts, and data usage, generating
+monthly bills, maintaining balances on prepaid calling cards, and storing information about the communication networks.
+• Web-based services
+° Social-media: For keeping records of users, connections between users (such as
+friend/follows information), posts made by users, rating/like information about
+posts, etc.
+° Online retailers: For keeping records of sales data and orders as for any retailer,
+but also for tracking a user’s product views, search terms, etc., for the purpose
+of identifying the best items to recommend to that user.
+° Online advertisements: For keeping records of click history to enable targeted
+advertisements, product suggestions, news articles, etc. People access such
+databases every time they do a web search, make an online purchase, or access a social-networking site.
+• Document databases: For maintaining collections of new articles, patents, published research papers, etc.
+• Navigation systems: For maintaining the locations of varies places of interest along
+with the exact routes of roads, train systems, buses, etc.
+
+the way people interact with databases has changed. we now have developed specific languages to use in interacting with the data, along with user interfaces that allowed end users within the enterprise to query and update data. now customers, users, people can focus on the product or service without being aware of the details fo the large database that makes the interaction possible. example: when you read a social media post, browse a website, etc you are accessing data stored in a database. when you enter an order online, your order is stored in a database. you access a bank website and retrieve your bank balance and transaction information, the information is retrieved from the banks database system.when you acces a website information about you may be retrieved from a database to select which advertisements you should see. almost every time you interact with your smartphone it results in some sort of database access. databases are an essential part of almost everyones life today. 
+
+broadly speaking there are two modes in which a database is used:
+online transaction processing:
+where a large number of users use the database. while each user retrieves a relatively small amount of data and usually small updates are performed. primary mode of use for the vast majority of users of database applications.
+
+data analytics:
+procession of data to draw conclusion, infer rules or decision procedures, which are then used to drive business decisions. example: banks need to know whether to give a loan to a loan applicant, online ads need to know which ad to show to whom. these tasks get addressed in two steps. first data-analysis techniques attempt to automatically discover rules and patterns from data and create predictive models. these models take as input attributes of individuals and output predictions, such as the likelihood of paying back a loan, click on an ad, which then get used to make business decisions. manufacturers and retailers need to make decisions on what items to manufacture or in what quantity they want to order. these decisions are driven significantly by techniques of analyzing past data, and predicting trends. cost of a wrong decisions can devastating, so organizations are willing to invest a lot of money to gather or purchase required data, and build systems that can use that data to make accurate predictions. the field of data mining combines knowledge discovery techniques invented by ai researchers and statistical analysts with efficient implementation techniques that enable them to be used on extremely large data bases.
+
+1.2 purpose of database systems:
+
+think about an university organization that keeps information about all instructors, students, departements, and course offerings. one way to keep information on a computer is to store it in operating system files. to allow users to manipulate the information. the system has a number of application programs that manipulate the files, including programs to:
+- add new students
+- register students for courses and generate class rosters
+- assign grades to students, compute grade point averages and generate transcripts.
+
+new applications are added to the system as the need arises. for example if the uni creates a new major, therefore creating a new departement and new permanent files ( or adds info to the existing files ) to record information about all the instructors in the departement, students in that major, course offerings, degree requirements and so on. the uni might need new programs to deal with rules specific to the new major. so the system acquires with time more files and more programs. this typical file-processing system is supported by a conventional operating system. the system stores permanent record in various files, and it needs different application programs to extract records from, and add records to, appropriate files. but holding the data stored in a file-processing system has a number of disadvantages:
+
+data redunancy and inconsistency:
+since different people create the files and programs over a long period, the various files are likely to have different structure, and the programs may be written in several programming languages. moreover the same information could be duplicated in several places(files). for example a student with a double major will have his address, tel_nr and other things in both the music and mathematics departement. this leads to higher storage and access cost. can also lead to data inconsistency after, for example the student changes his address but only in the music departement will that be reflected.
+
+difficulty in accessing data:
+suppose you want to find out the name of all students who live within a particular postal-code area. because this is something new and no program exists for tthis it will either have to be manually looked up, or someone has to write a program for this. both are obviously unsatisfactory, imagine if that program is written and now it should filter further into only all the students with atleast 60 ECTS, now another program would have to be written or another manual search. point is conventional file-processing environments dont allow needed data to be retrieved in an efficient and convenient way. also because data could be scattered in various files and different formats, writing a program to retrieve all the appropriate data is difficult.
+
+Integrity constraints (e.g., account balance > 0) become “buried” in program code rather than being stated explicitly. 
+
+Atomicity problems:
+Failures may leave database in an inconsistent state with partial updates carried out
+• Example: Transfer of funds from one account to another should either
+complete or not happen at all
+exp: cash transfer, from a to b, but after taking money out of a the system crashes, now money is gone from a but not in account b. or :
+Consider account A,
+with a balance of $10,000. If two bank clerks debit the account balance (by say
+$500 and $100, respectively) of account A at almost exactly the same time, the result of the concurrent executions may leave the account balance in an incorrect (or inconsistent) state. Suppose that the programs executing on behalf of each withdrawal read the old balance, reduce that value by the amount being withdrawn, and write the result back. If the two programs run concurrently, they may both read the value $10,000, and write back $9500 and $9900, respectively. Depending on which one writes the value last, the balance of account A may contain either $9500 or $9900, rather than the correct value of $9400. To guard against this possibility, the system must maintain some form of supervision. But supervision is difficult to provide because data may be accessed by many different application programs that have not been coordinated previously.
+
+security problems:
+not everyone should be able to access everything, but since programs are added when needed, enforcing that could be difficult.
+
+this all prompted the initial development of database systems and the transition from file-based applications to database systems.
+
+1.3 View of Data:
+A database system is a collection of interrelated data and a set of programs that allow users to access and modify these data. a major purpose of a database system is to provide users with an abstract view of the data. system hides details of how data is stored and maintained.
+
+1.3.1 data models:
+underlying the structure of a database is the data model: a collection of conceptual tools for describing data, data relationships, data semantics, and consistency constraints. there are 4 different categories of data models:
+Relational Models:
+uses a collection of tables to represent both data and the relationships among that data. each table has multiple columns, and each column has a unique name. tables are known as relations. relational model are record-based models, which means the database is structured in fixed-format records of several types. each table contains records of a particular type. each record type defines a fixed number of fields, or attributes, the columns of the table correspond to the attributes of the record. the relational data model is the most widely used data model, majority of current database systems are based on the relational model.
+
+
